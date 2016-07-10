@@ -29,8 +29,6 @@ class ViewController: UIViewController, UICollectionViewDelegate , UICollectionV
         
         initAudio()
         parsePokemonCSV()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
         
     }
     
@@ -159,8 +157,6 @@ class ViewController: UIViewController, UICollectionViewDelegate , UICollectionV
             }
         }
     }
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
+    
 }
 
