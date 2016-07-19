@@ -9,7 +9,7 @@
 import UIKit
 
 class PokemonDetailVC: UIViewController {
-
+    var indicator:ProgressIndicator?
     var pokemon: Pokemon!
     
     @IBOutlet weak var Label: UILabel!
@@ -28,16 +28,22 @@ class PokemonDetailVC: UIViewController {
     @IBOutlet weak var evoLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         Label.text = pokemon.name.capitalizedString
         let img = UIImage(named: "\(pokemon.pokedexId)")
         mainImg.image = img
         currentEvoImg.image = img
         
+        indicator = ProgressIndicator(inview:self.view,loadingViewColor: UIColor.grayColor(), indicatorColor: UIColor.blackColor(), msg: "Loading within seconds,Please hold tight..")
+        self.view.addSubview(indicator!)
+        indicator!.start()
+        
         pokemon.downloadPokemonDetails { () -> () in
            
             self.updateUI()
-            
+            self.indicator!.stop()
         }
+        
     }
 
     func updateUI() {
