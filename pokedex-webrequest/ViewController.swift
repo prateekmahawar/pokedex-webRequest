@@ -22,10 +22,12 @@ class ViewController: UIViewController, UICollectionViewDelegate , UICollectionV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         collection.delegate = self
         collection.dataSource = self
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.Done
+        
         
         initAudio()
         parsePokemonCSV()
@@ -109,7 +111,10 @@ class ViewController: UIViewController, UICollectionViewDelegate , UICollectionV
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(105, 105)
+        
+        let width = CGRectGetWidth(collection!.frame) / 3
+        let final = width - 1
+        return CGSizeMake(final, final)
     }
     
     @IBAction func musicBtnPressed(sender: UIButton!) {

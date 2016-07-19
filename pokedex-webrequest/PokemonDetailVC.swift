@@ -34,7 +34,7 @@ class PokemonDetailVC: UIViewController {
         mainImg.image = img
         currentEvoImg.image = img
         
-        indicator = ProgressIndicator(inview:self.view,loadingViewColor: UIColor.grayColor(), indicatorColor: UIColor.blackColor(), msg: "Loading within seconds,Please hold tight..")
+        indicator = ProgressIndicator(inview:self.view,loadingViewColor: UIColor.grayColor(), indicatorColor: UIColor.blackColor(), msg: "Loading to the device,Please hold tight..")
         self.view.addSubview(indicator!)
         indicator!.start()
         
